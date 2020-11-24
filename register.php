@@ -1,8 +1,8 @@
 <?php
 
+session_start();
 $error = "";
 
-include 'header.php';
 include 'conn.php';
 
 if ($_SESSION) {
@@ -23,6 +23,9 @@ if ($_SESSION) {
   }
   mysqli_close($conn);
 }
+
+$pageTitle = 'Register | Mathematics';
+include 'header.php';
 
 ?>
 

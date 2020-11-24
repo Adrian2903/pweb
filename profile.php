@@ -1,6 +1,6 @@
 <?php
 
-include 'header.php';
+session_start();
 include 'conn.php';
 
 if (!$_SESSION) {
@@ -26,7 +26,8 @@ if (!$_SESSION) {
     mysqli_close($conn);
   }
 }
-$pageTitle = "Login | Mathematics";
+$pageTitle = "$username's| Mathematics";
+include 'header.php';
 
 ?>
 

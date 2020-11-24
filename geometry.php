@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+$pageTitle = 'Geometry | Mathematics';
 include 'header.php';
 
 ?>
@@ -14,8 +16,8 @@ include 'header.php';
   <style>tr>td:first-child{width:2%;}tr>td:nth-child(2){width:50%;}tr>th:nth-child(2){text-align:center;}tr>td{color:green}</style>
   <div class="row">
     <div class="col-lg-12" id="table_triangle">
-      <img src="triangle1.png" alt="right-triangle">
-      <img src="triangle2.png" alt="triangle">
+      <img src="images/triangle1.png" alt="right-triangle">
+      <img src="images/triangle2.png" alt="triangle">
       <table class="table table-bordered table-hover table-striped">
         <tr class="table-info">
           <th>No</th>
@@ -40,7 +42,7 @@ include 'header.php';
       </table>
     </div>
     <div class="col-lg-12" id="table_square" style="display:none">
-      <img src="square.png" alt="square">
+      <img src="images/square.png" alt="square">
       <table class="table table-bordered table-hover table-striped">
         <tr class="table-info">
           <th>No</th>
