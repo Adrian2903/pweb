@@ -16,6 +16,7 @@ if ($_SESSION) {
     $sql = "SELECT * FROM users WHERE `username`='$username'";
     $res = mysqli_query($conn, $sql);
     $row = $res->fetch_assoc();
+    
     if ($row != NULL) {
       if (password_verify($_POST["password"], $row["password"])) {
         $_SESSION["username"] = $username;
