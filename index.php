@@ -10,13 +10,14 @@ include 'header.php';
     <h1 align="center">Please <a href="login.php">login</a> before you can access all material</h1>
   </div>  
 <?php } ?>
+
 <?php function card($title, $msg, $color) { ?>
   <div class="col-sm-3">
-    <div class="card text-white bg-<?= $color?>">
-      <div class="card-header"><?= $title?></div>
+    <div class="card text-white bg-<?php echo $color;?>">
+      <div class="card-header"><?php echo $title;?></div>
       <div class="card-body">
-        <p class="card-text"><?= $msg?></p>
-        <a href="<?php if ($_SESSION) { echo $title;?>.php<?php } else { ?>login.php<?php } ?>" class="btn btn-info">Learn more</a>
+        <p class="card-text"><?php echo $msg;?></p>
+        <a href="<?php if ($_SESSION) { echo $title;?>.php<?php } else { ?>login.php<?php }?>" class="btn btn-info">Learn more</a>
       </div>
     </div>
   </div>
