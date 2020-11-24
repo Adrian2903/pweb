@@ -77,7 +77,7 @@ include 'header.php';
         </tr>
       </table>
     </div>
-    <script src="geometry.js"></script>
+    <script src="js/geometry.js"></script>
   </div>
 </div>
 
