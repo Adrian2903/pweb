@@ -1,8 +1,8 @@
 <?php
 
+session_start();
 $error = "";
 
-include 'header.php';
 include 'conn.php';
 
 if ($_SESSION) {
@@ -32,6 +32,7 @@ if ($_SESSION) {
 }
 
 $pageTitle = "Login | Mathematics";
+include 'header.php';
 
 ?>
 
