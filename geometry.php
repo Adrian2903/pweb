@@ -2,10 +2,12 @@
 
 session_start();
 $pageTitle = 'Geometry | Mathematics';
+include 'only_head.php';
 include 'header.php';
+include 'conn.php';
 
 ?>
-<div class="jumbotron fixed" style="background-color:rgb(96, 202, 26);">
+<div class="jumbotron fixed" style="background-color:#95f0e1;">
   <h1 align="center">Geometry</h1>
 </div>
 <div class="container">
@@ -15,7 +17,7 @@ include 'header.php';
   </ul>
   <style>tr>td:first-child{width:2%;}tr>td:nth-child(2){width:50%;}tr>th:nth-child(2){text-align:center;}tr>td{color:green}</style>
   <div class="row">
-    <div class="col-lg-12" id="table_triangle">
+    <div class="col-lg-12 table-responsive" id="table_triangle">
       <img src="images/triangle1.png" alt="right-triangle">
       <img src="images/triangle2.png" alt="triangle">
       <table class="table table-bordered table-hover table-striped">
@@ -24,21 +26,17 @@ include 'header.php';
           <th>Formula</th>
           <th>Note</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>$$ a^2 + b^2 = c^2 $$</td>
-          <td><p>Phytagoras Formula</p><p>Only apply to right triangle (image left)</p></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>$$ A = \frac{b \times h}{2} $$</td>
-          <td><p>Area Formula</p><p>b = base, h = height</p></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>$$ P = a + b + c $$</td>
-          <td><p>Perimeter Formula</p><p>a, b, c = 3 sides of triangle</p></td>
-        </tr>
+        <?php 
+          $q = "SELECT * FROM geometry WHERE sub = 'triangle'";
+          $res = mysqli_query($conn, $q);
+          $i = 1;
+          while ($row = $res->fetch_row()) { ?>
+            <tr>
+              <td><?= $i++;?></td>
+              <td><?= $row[1];?></td>
+              <td><p><?= $row[2];?></p></td>
+            </tr>
+        <?php } ?>
       </table>
     </div>
     <div class="col-lg-12" id="table_square" style="display:none">
@@ -49,16 +47,17 @@ include 'header.php';
           <th>Formula</th>
           <th>Note</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>$$ A = s^2 $$</td>
-          <td><p>Area Formula</p><p>s = side</p></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>$$ P = 4 \times s $$</td>
-          <td><p>Perimeter Formula</p><p>s = side</p></td>
-        </tr>
+        <?php 
+          $q = "SELECT * FROM geometry WHERE sub = 'square'";
+          $res = mysqli_query($conn, $q);
+          $i = 1;
+          while ($row = $res->fetch_row()) { ?>
+            <tr>
+              <td><?= $i++;?></td>
+              <td><?= $row[1];?></td>
+              <td><p><?= $row[2];?></p></td>
+            </tr>
+        <?php } ?>
       </table>
     </div>
     <script src="js/geometry.js"></script>
