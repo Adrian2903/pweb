@@ -9,24 +9,29 @@ if (!$_SESSION) {
   $username = $_SESSION["username"];
 
   if (isset($_POST["submit"])) {
-    $username = $_POST["username"];
+    $username = $_SESSION["username"];
     $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
-    $sql = "UPDATE users set `password`='$password'";
+    $sql = "UPDATE users set `password`='$password' WHERE `username` = '$username'";
     if (mysqli_query($conn, $sql)) {
       mysqli_close($conn);
-      header("location: profile.php");
+      if (setcookie("pwd", $_POST["password"])) {
+        header("location: profile.php");
+      } else {
+        echo "...";
+      }
     }
   } else {
     $sql = "SELECT * FROM users WHERE `username`='$username'";
     $res = mysqli_query($conn, $sql);
     $row = $res->fetch_assoc();
 
-    $password = $row["password"];
+    $password = $_COOKIE["pwd"];
     mysqli_close($conn);
   }
 }
 $pageTitle = "$username's| Mathematics";
+include 'only_head.php';
 include 'header.php';
 
 ?>

@@ -25,6 +25,7 @@ if ($_SESSION) {
 }
 
 $pageTitle = 'Register | Mathematics';
+include 'only_head.php';
 include 'header.php';
 
 ?>

@@ -21,7 +21,12 @@ if ($_SESSION) {
       if (password_verify($_POST["password"], $row["password"])) {
         $_SESSION["username"] = $username;
         $_SESSION['id'] = $row['id'];
-        header("location: index.php");
+        $_SESSION["roles"] = $row["roles"];
+        if (setcookie("pwd", $_POST["password"])) {
+          header("location: index.php");
+        } else {
+          echo "...";
+        }
       } else {
         $error = "Wrong password";
       }
@@ -33,6 +38,7 @@ if ($_SESSION) {
 }
 
 $pageTitle = "Login | Mathematics";
+include 'only_head.php';
 include 'header.php';
 
 ?>
