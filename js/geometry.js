@@ -10,15 +10,9 @@ square_nav.addEventListener("click", squareClick);
 function triangleClick() {
   square.style.display = "none";
   triangle.style.display = "";
-  
-  triangle_nav.className = "active";
-  square_nav.className = "";
 }
 
 function squareClick() {
   square.style.display = "";
   triangle.style.display = "none";
-
-  triangle_nav.className = "";
-  square_nav.className = "active";
 }
