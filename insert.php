@@ -14,11 +14,11 @@ if (isset($_POST["submit"])) {
   $res = explode(";", $_POST["sub_table"]);
   $table = $res[0];
   $sub = $res[1];
-  $q = "INSERT INTO $table (`formula`, `note`, `sub`) VALUES ('$formula', '$note', '$sub')";
+  $q = "INSERT INTO $table (`formula`, `note`, `sub`) VALUES ('".addslashes($formula)."', '$note', '$sub')";
 
   if (mysqli_query($conn, $q)) {
     mysqli_close($conn);
-    header("location: test.php");
+    header("location: insert.php");
   } else {
     die("hehe");
   }
@@ -99,7 +99,7 @@ include 'only_head.php';
   include 'header.php';
 ?>
 <div class="container mt-4">
-  <form action="test.php" method="POST">
+  <form action="insert.php" method="POST">
     <div class="form-group">
       <label for="MathInput">Formula</label>
       <textarea class="form-control" id="MathInput" name="MathInput" onkeyup="Preview.Update()"></textarea>
